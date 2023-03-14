@@ -5,6 +5,7 @@ using UnityEngine;
 public class ArrowShooter : MonoBehaviour
 {
 public GameObject arrowPrefab;
+public float force = 1000;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +20,7 @@ public GameObject arrowPrefab;
         if(Input.GetMouseButtonDown(0))
         {
             var arrow = Instantiate(arrowPrefab, transform.position, transform.rotation);
-            arrow.GetComponent<Rigidbody2D>().AddForce(transform.right * 1000);
+            arrow.GetComponent<Rigidbody2D>().AddForce(transform.right * force);
             Destroy(arrow, 5);
         }
     }
